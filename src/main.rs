@@ -9,7 +9,9 @@ fn main() {
     let is_active: bool = true; //boolean
     let grade: char = 'A'; //character
 
-    print!("age is {}, num is {}, temp is {}, is_active is {}, grade is {}", age, num, temp, is_active, grade);
+    print!("sum of 10 and 20 is {}\n", add(10, 20));
+
+    print!("age is {}, num is {}, temp is {}, is_active is {}, grade is {}\n", age, num, temp, is_active, grade);
 
     greet("Alice");
 
