@@ -1,25 +1,37 @@
 #[derive(Debug)]
 
-struct User{
-    username: String,
-    age: u32,
-    active: bool,
+enum TrafficLight{
+    Red,
+    Yellow,
+    Green,
+}
+
+#[derive(Debug)]
+enum Shapes{
+    Circle(f64),
+    Rectangle(f64, f64),
+    Square(f64),
 }
 
 fn main(){
-    let user1= User{
-        username: String::from("Alice"),
-        age: 30,
-        active: true,
-    };
-    print!("{}\n", user1.describe());
-    print!("{:?}\n", user1);
-}
+    let light = TrafficLight::Red;
+    print!("{:?}\n", light);
 
+    let shape=Shapes::Circle(10.0);
+    print!("{:?}\n", shape);
 
-//this is for adding methods to any given struct.
-impl User{
-    fn describe(&self) -> String{
-        format!("Username: {}, Age: {}, Active: {}", self.username, self.age, self.active)
+    match light{
+        TrafficLight::Red => println!("Stop!"),
+        TrafficLight::Yellow => println!("Caution!"),
+        TrafficLight::Green => println!("Go!"),
+    }
+
+    //match is exhaustive, so we need to handle all variants of the enum
+    match shape{
+        Shapes::Circle(radius) => println!("Circle with radius: {}", radius),
+        Shapes::Rectangle(width, height) => println!("Rectangle with width: {} and height: {}", width, height),
+        Shapes::Square(side) => println!("Square with side: {}", side),
+        _ => println!("Unknown shape"),
     }
 }
+
