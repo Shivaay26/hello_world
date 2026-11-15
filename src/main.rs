@@ -1,16 +1,18 @@
-fn divide(a: f64,b:f64) ->  Result<f64, String> {
-    if b==0.0 {
-        Err(String::from("Cannot divide by zero"))
-    } else {
-        Ok(a/b)
-    }
-    
-}
+use std::collections::HashMap;
 
 fn main(){
-    match divide(10.0, 0.0) {
-        Ok(result) => println!("Result: {}", result),
-        Err(e) => println!("Error: {}", e),
+    let mut scores: Vec<_> = vec![10, 20, 30, 40, 50];
+    let mut ages: HashMap<String, u32> = HashMap::new();
+
+    ages.insert(String::from("Praveen"), 25);
+    ages.insert(String::from("John"), 30);
+
+    if let Some(age)=ages.get("Praveen"){
+        println!("Praveen's age is {}", age); 
+    }
+    scores.push(60);
+    for score in scores {
+        println!("Score: {}", score);
     }
 }
 
